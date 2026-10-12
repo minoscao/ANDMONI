@@ -1,9 +1,14 @@
-# Image provenance
+# v3.1 visual provenance and matching
 
-Created for this ANDMONI concept on 2026-10-12 using built-in image generation. No third-party brand assets were copied.
+All four site images are retained original AI-generated concept assets from this project. No reference-brand asset is included.
 
-- `public/assets/sock-ivory-cutout-v2.png`: original ivory mid-calf sock concept; 1254 × 1254; true transparency; anatomically shaped heel and toe. Graphite/dusk and oat appearances are illustrative CSS treatments.
-- `public/assets/campaign-runner-terracotta.webp`: original adult female running campaign concept; 1536 × 1024; ivory mid-calf socks and unbranded cream footwear on a terracotta track.
-- `public/assets/product-ivory.webp`: original studio sock concept; 1254 × 1254; used as a design-notebook illustration.
+- `public/assets/pace-moss.png`: original moss / ivory / bordeaux sock, transparent 1254 × 1254 PNG.
+- `public/assets/form-rose.png`: original rose / burgundy sock, transparent 1254 × 1254 PNG.
+- `public/assets/daily-chalk.png`: original chalk / cobalt / sage sock, transparent 1254 × 1254 PNG.
+- `public/assets/campaign-runner-terracotta.webp`: original brand mood image of a runner in plain white socks. It is visibly labeled NOT A PHOTO OF THE COLLECTION.
 
-These are generated visual concepts. They do not establish actual product materials, manufacturing details, comfort, durability or performance. Replace or validate them before commercial launch.
+The selected SKU image is used consistently in the hero, palette, product dialog and magnification section. Magnification changes crop/scale of that same file; it does not substitute a different textile image. Cuff, heel and toe anchor coordinates are defined per SKU and mathematically centered across the zoom range.
+
+Independent textile artworks from v3 are outside the published directory and are not presented as SKU materials.
+
+The source images have been viewed directly. Minor colored edge pixels are visible on some transparent outlines at high magnification, so light/dark background and maximum-zoom browser acceptance remains pending. The images are not physical product photographs or evidence of material composition, manufacturing or performance.

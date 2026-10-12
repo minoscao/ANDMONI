@@ -1,58 +1,57 @@
-# ANDMONI — The Movement Edit
+# ANDMONI v3.1 — A continuous design-to-selection journey
 
-A feminine, international sports-sock brand concept. The website follows the same anatomically shaped sock through three spatial chapters: a floating pair, an interactive shape study, and a styling scene with live color selection linked to the product flow.
+Release-ready static package for the already authorized ANDMONI target. The previously frozen source versions are preserved separately. This package does not by itself certify a deployed version or a browser visual pass; deployment status must be verified from the hosting result.
 
-Native scrolling controls a layered pseudo-3D scene. Mouse movement adds eased perspective. Visitors can jump between chapters, pause motion, explore sock details, switch concept colors, filter the collection, select a size and use a browser-local demo bag. System reduced-motion settings and phone layouts have dedicated behavior.
+## Designer / creative-supervisor decisions
 
-## Cloudflare Pages
+The previous experience asked visitors to choose a color in the hero, then hid those products inside a second palette discovery. That duplicated the main decision and made commerce slower. Several repeated motions added spectacle without new information. This candidate replaces that structure rather than adding another animation layer.
 
-Connect this repository in Cloudflare Pages:
+### One selection, carried through
 
-- Production branch: `main`
-- Framework preset: **None**
-- Build command: `exit 0`
-- Build output directory: `public`
-- Root directory: repository root
-- Environment variables / secrets: none
+- One-screen brand entry: a shaped product and a user-controlled presentation spotlight. This is lighting presentation, not a real 3D material simulation.
+- The palette is the only color/SKU choice point. The selected design persists in browser storage and stays synchronized with the hero, inspection image, product dialog and return-to-selection action.
+- Shop links and the final CTA go directly to the expanded selection state. They do not require watching the reveal.
+- Only the sock image flies. Cards, names, prices and buttons remain stationary; information appears after the image lands.
+- Open / Replay move the real page scroll position. There is no permanent animation override or intercepted wheel input.
 
-Only `public/` is published. No source archive, tests or image master files are included in that directory.
+### Each section does a different, useful job
 
-After a successful Pages deployment, add the desired custom subdomain through the Cloudflare dashboard. No custom domain is configured or claimed as deployed by this repository. DNS and account linking are separate steps.
+1. **Look**: the short hero introduces the silhouette and lets the visitor move the presentation spotlight.
+2. **Choose**: palette colors release into three actual product designs.
+3. **Inspect**: cuff/heel/toe controls magnify the SAME selected SKU image. Per-SKU normalized anchors keep each target centered at minimum and maximum zoom.
+4. **Feel the mood**: a stable running image uses restrained track-line drawing. The visible caption identifies it as a brand mood study, not a photo of this collection.
+5. **Read**: the line motif becomes navigation through three design principles; each control changes the information.
+6. **Open**: real semantic notebook disclosures reveal content on click, touch or keyboard. Covers do not obstruct shopping buttons.
+7. **Return**: the final CTA returns to the selected design, already expanded.
 
-Official references: [Static HTML](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/) and [Build configuration](https://developers.cloudflare.com/pages/configuration/build-configuration/).
+The earlier independent textile macro artworks are not used as SKU details or product evidence. They are outside `public/` and absent from the release assets.
 
-## Cloudflare Workers alternative
+## Mobile and reduced motion
 
-`wrangler.jsonc` is a credential-free static-assets configuration pointing at `public/`. After the owner configures authenticated Cloudflare tooling, `wrangler deploy` can deploy it as a static Worker. Do not deploy both alternatives unintentionally. This repository contains no account IDs, routes, tokens or custom-domain bindings.
+On phones: one large selected product, three visible 44px-plus choice controls, and a sticky selection bar. Changing color does not scroll those controls away. Main product information is 13px or larger; secondary labels are 11px or larger. No three-card miniaturization.
 
-Official reference: [Workers static assets](https://developers.cloudflare.com/workers/static-assets/).
+On short viewports and in reduced-motion mode: the selection becomes ordinary document flow without a long empty sticky stage. The OS preference sets the initial effective motion state. The manual toggle uses that same state for both CSS and JavaScript, including OS-reduce -> Enable -> Pause transitions.
 
-## Local development
+## Checks performed
 
-The site is plain HTML/CSS/JavaScript with no runtime packages. Edit `public/index.html` and the files under `public/assets/`.
+`npm test` and `npm run build` pass. Node.js 20+ is sufficient; no dependencies are needed.
 
-- Open `public/index.html` in a modern browser for a local preview.
-- `npm test` runs syntax, asset and simulated-DOM logic tests using Node.js 20+.
-- `npm run build` verifies the existing static output. No compilation is necessary.
+Checks cover syntax, assets, one persistent selection, direct Shop/return targets, native-scroll Open/Replay, image-only flight, matching SKU detail sources, 9 part anchors at minimum/maximum zoom, principle controls, product/cart logic, modal focus restoration, mobile no-scroll color selection, short-screen flow, and effective reduced-motion state transitions.
 
-## Verification
+A separate creative reviewer inspected the actual code and ran the tests. These are static and simulated-DOM checks, NOT browser layout/motion validation. The review boards are labeled design diagrams, not screenshots.
 
-Executed successfully against this revision:
+### Still pending
 
-- Full script syntax and asset existence
-- Product filters, detail state, size selection
-- Bag quantity, remove, subtotal, quantity cap and storage serialization
-- All three scene states, progress and inactive chapter accessibility
-- Sock detail hotspots, photo-plane reveal and color-to-product mapping
-- Motion toggle and chapter navigation logic
-- No wheel-event interception or network API calls
+A real-browser desktop/phone pass needs an accessible authorized preview. Check rendered overlap, image flight timing, sticky selection offsets, focus during interrupted smooth scroll, and image edges at maximum zoom on light/dark backgrounds. Some generated cutout edge pixels have minor color fringe and need visual asset acceptance. No browser or responsive-layout pass is claimed.
 
-These are static and simulated-DOM checks. Real-browser rendering, screenshots and end-to-end motion QA are still pending: local Chromium was blocked by the execution environment's socket restriction, and the available cloud browser could not open local files. An accessible preview deployment is needed for that final visual pass. Tests do not imply browser compatibility certification.
+## Run / hosting
 
-## Demo boundaries
+- Open `public/index.html` locally in a modern browser.
+- `npm test`
+- `npm run build` (validates the already-static output)
 
-This is a design prototype, not a functioning shop. Prices, sizing, names, colors and product imagery are illustrative. Materials, construction and performance have not been validated. There are no real orders, payments, accounts, email collection, analytics or external checkout services. The bag is stored only in browser storage when available.
+Only `public/` is intended for hosting. Cloudflare Pages can use main / None / `exit 0` / `public`. `wrangler.jsonc` retains the credential-free Workers static-assets alternative. The package does not change domain routing, accounts or credentials.
 
-The campaign and transparent sock images are original AI-generated concepts, not real ANDMONI product photography. The sock color variants are illustrative treatments of the same image. See `ASSETS.md` for provenance.
+## Commercial boundary
 
-Before commercial launch: confirm brand rights, final products, imagery, product claims, stock, final prices, sizing, customer policies, accessibility and fulfillment/payment integration.
+All products, prices and sizes are design examples. No actual fiber, manufacturing, fit or performance claims are established by the images. No real orders, payments, accounts, newsletters or analytics are connected. The demo bag and design selection are browser-local. Physical samples, product facts, brand clearance, stock, policies and commercial integrations must be confirmed before sales.
