@@ -1,0 +1,13 @@
+import { readFile, access } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import assert from 'node:assert/strict';
+const root = fileURLToPath(new URL('../public/', import.meta.url));
+const html = await readFile(root + 'index.html', 'utf8');
+const js = html.match(/<script>([\s\S]*?)<\/script>/)[1];
+new Function(js);
+for (const [, asset] of html.matchAll(/(?:src|href)="(assets\/[^\"]+)"/g)) await access(root + asset);
+assert(!/fetch\(|XMLHttpRequest|<script[^>]+src=/.test(html));
+assert(html.includes("prefers-reduced-motion: reduce"));
+assert(html.includes('data-story="0"') && html.includes('data-focus="heel"') && html.includes('data-look="form"'));
+assert(!/addEventListener\(['"]wheel/.test(html));
+console.log('PASS: full script syntax, local assets, reduced-motion branch, scene/product controls, no network API or wheel interception.');
