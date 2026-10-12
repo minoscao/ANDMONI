@@ -1,7 +1,7 @@
 // Lightweight in-process tests for demo state logic, independent of browser rendering.
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const html=fs.readFileSync(__dirname+'/../public/index.html','utf8');
-const script=html.match(/<script>([\s\S]*?)<\/script>/)[1].split('// Journey v3.1')[0];
+const script=html.match(/<script>([\s\S]*?)<\/script>/)[1].split('// Journey v4')[0];
 const elements=new Map(),listeners={},storage=new Map();let focusCalls=0;
 function element(id){if(!elements.has(id))elements.set(id,{id,hidden:true,innerHTML:'',textContent:'',dataset:{},classList:{add(){},remove(){},toggle(){}},querySelector(){return {focus(){focusCalls++}}},querySelectorAll(){return []},addEventListener(){},focus(){}});return elements.get(id)}
 const overlays=['productOverlay','cartOverlay','guideOverlay'].map(element);

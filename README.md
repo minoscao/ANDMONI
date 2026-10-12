@@ -1,57 +1,27 @@
-# ANDMONI v3.1 — A continuous design-to-selection journey
+# ANDMONI 4.0.0
 
-Release-ready static package for the already authorized ANDMONI target. The previously frozen source versions are preserved separately. This package does not by itself certify a deployed version or a browser visual pass; deployment status must be verified from the hosting result.
+Six-act, native-scroll brand and product concept. One reversible cinematic stage connects an intact sports sock, a color palette, a focused detail lens, a running mood, design principles and an opening notebook with the selected product.
 
-## Designer / creative-supervisor decisions
+## Build and hosting
 
-The previous experience asked visitors to choose a color in the hero, then hid those products inside a second palette discovery. That duplicated the main decision and made commerce slower. Several repeated motions added spectacle without new information. This candidate replaces that structure rather than adding another animation layer.
+- Static, buildless HTML with four local images. Node 20+; no dependencies.
+- `npm test` checks source, assets, commerce and journey logic. `npm run build` checks the output directory.
+- Existing Cloudflare configuration remains unchanged: output `public/`, build `exit 0` or the existing configured command. `wrangler.jsonc` still points to `./public`.
+- `public/index.html` is the reviewed homepage release package. The existing `public/preview/v4/` route is retained with its preview version and noindex metadata. No preview files or current images are removed or rewritten by the promotion patch.
+- Deployment must be verified by the publishing workflow. This package itself does not establish that the homepage is live.
 
-### One selection, carried through
+## Interaction
 
-- One-screen brand entry: a shaped product and a user-controlled presentation spotlight. This is lighting presentation, not a real 3D material simulation.
-- The palette is the only color/SKU choice point. The selected design persists in browser storage and stays synchronized with the hero, inspection image, product dialog and return-to-selection action.
-- Shop links and the final CTA go directly to the expanded selection state. They do not require watching the reveal.
-- Only the sock image flies. Cards, names, prices and buttons remain stationary; information appears after the image lands.
-- Open / Replay move the real page scroll position. There is no permanent animation override or intercepted wheel input.
+Native page scrolling drives all scenes without wheel interception or autoplay. Chapter and navigation links move to real scroll positions. The current design is consistent across all scenes and the product dialog. Detail buttons and zoom immediately reveal the chosen part and retain manual control until that chapter is left.
 
-### Each section does a different, useful job
+The stage uses non-scrollable clipping, so focusing its controls should not scroll an internal viewport. The scroll cue and navigation controls have independent, readable layers. Widths <=760px, heights <=620px, paused motion and the initial OS reduced-motion setting use ordinary document flow. The user can override motion through one shared state.
 
-1. **Look**: the short hero introduces the silhouette and lets the visitor move the presentation spotlight.
-2. **Choose**: palette colors release into three actual product designs.
-3. **Inspect**: cuff/heel/toe controls magnify the SAME selected SKU image. Per-SKU normalized anchors keep each target centered at minimum and maximum zoom.
-4. **Feel the mood**: a stable running image uses restrained track-line drawing. The visible caption identifies it as a brand mood study, not a photo of this collection.
-5. **Read**: the line motif becomes navigation through three design principles; each control changes the information.
-6. **Open**: real semantic notebook disclosures reveal content on click, touch or keyboard. Covers do not obstruct shopping buttons.
-7. **Return**: the final CTA returns to the selected design, already expanded.
+## Verification boundaries
 
-The earlier independent textile macro artworks are not used as SKU details or product evidence. They are outside `public/` and absent from the release assets.
+Static and simulated-DOM tests pass, including the original product/size/price/cart/focus checks, six reversible scenes, selected-product consistency, same-image magnification, shared-path boundary coordinates, safe hero bounds, real header geometry, manual detail control, motion-preference switching and mobile-state logic.
 
-## Mobile and reduced motion
+Preview.3 passed targeted real desktop-browser review on 2026-10-12: forward/reverse chapter navigation, all three complete hero silhouettes, palette layout and replay, immediate detail selection and keyboard zoom without internal stage scrolling, final notebook layout, a fit-note Tab/Enter path, Pause/Enable and a Chalk product-dialog open/close. See `QA.md` for the exact coverage. Real mobile rendering, OS reduced-motion behavior, a full keyboard/screen-reader audit and the complete shopping-bag flow were not browser-tested. Responsive/state tests are not device verification.
 
-On phones: one large selected product, three visible 44px-plus choice controls, and a sticky selection bar. Changing color does not scroll those controls away. Main product information is 13px or larger; secondary labels are 11px or larger. No three-card miniaturization.
+## Demonstration limits
 
-On short viewports and in reduced-motion mode: the selection becomes ordinary document flow without a long empty sticky stage. The OS preference sets the initial effective motion state. The manual toggle uses that same state for both CSS and JavaScript, including OS-reduce -> Enable -> Pause transitions.
-
-## Checks performed
-
-`npm test` and `npm run build` pass. Node.js 20+ is sufficient; no dependencies are needed.
-
-Checks cover syntax, assets, one persistent selection, direct Shop/return targets, native-scroll Open/Replay, image-only flight, matching SKU detail sources, 9 part anchors at minimum/maximum zoom, principle controls, product/cart logic, modal focus restoration, mobile no-scroll color selection, short-screen flow, and effective reduced-motion state transitions.
-
-A separate creative reviewer inspected the actual code and ran the tests. These are static and simulated-DOM checks, NOT browser layout/motion validation. The review boards are labeled design diagrams, not screenshots.
-
-### Still pending
-
-A real-browser desktop/phone pass needs an accessible authorized preview. Check rendered overlap, image flight timing, sticky selection offsets, focus during interrupted smooth scroll, and image edges at maximum zoom on light/dark backgrounds. Some generated cutout edge pixels have minor color fringe and need visual asset acceptance. No browser or responsive-layout pass is claimed.
-
-## Run / hosting
-
-- Open `public/index.html` locally in a modern browser.
-- `npm test`
-- `npm run build` (validates the already-static output)
-
-Only `public/` is intended for hosting. Cloudflare Pages can use main / None / `exit 0` / `public`. `wrangler.jsonc` retains the credential-free Workers static-assets alternative. The package does not change domain routing, accounts or credentials.
-
-## Commercial boundary
-
-All products, prices and sizes are design examples. No actual fiber, manufacturing, fit or performance claims are established by the images. No real orders, payments, accounts, newsletters or analytics are connected. The demo bag and design selection are browser-local. Physical samples, product facts, brand clearance, stock, policies and commercial integrations must be confirmed before sales.
+All product designs, images, prices and sizes are illustrative concepts. No physical products, verified materials, customer reviews, performance claims or certifications are represented. Shopping bag data stays in local browser storage. Checkout is a non-transactional preview: no real payment, order, account, personal-data collection or analytics services are connected.
